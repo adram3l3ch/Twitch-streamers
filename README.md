@@ -14,7 +14,7 @@ Users should be able to:
 
 ### Links
 
--   Solution URL: [Github](https://github.com/adram3l3ch/twitch-streamers)
+-   Solution URL: [Github](https://github.com/adram3l3ch/Twitch-streamers)
 -   Live Site URL: [Netlify](https://adramelech-twitch-streamers.netlify.app/)
 
 ### Built with
