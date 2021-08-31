@@ -1,4 +1,30 @@
-# Getting Started with Create React App
+# About This Project
+
+This is a solution to the Use the TwitchTV JSON API challenge by Freecodecamp.
+
+### The challenge
+
+Users should be able to:
+
+-   see whether freeCodeCamp is currently streaming on Twitch.tv.
+
+-   click the status output and be sent directly to the freeCodeCamp's Twitch.tv channel.
+
+-   see additional details about what they are streaming.
+
+### Links
+
+-   Solution URL: [Github](https://github.com/adram3l3ch/twitch-streamers)
+-   Live Site URL: [Netlify](https://adramelech-twitch-streamers.netlify.app/)
+
+### Built with
+
+-   Semantic HTML5 markup
+-   CSS custom properties
+-   Flexbox
+-   [React](https://reactjs.org/) - JS library
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
