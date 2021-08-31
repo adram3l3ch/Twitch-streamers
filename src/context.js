@@ -56,17 +56,6 @@ const ContextProvider = ({ children }) => {
 		}
 	};
 
-	const fetchData = () => {
-		STREAMERS.forEach((streamer, index) => {
-			(async function fetchStreamer() {
-				const resp = await fetch(ENDPOINT + streamer);
-				const { stream } = await resp.json();
-				pushToDetails(stream, streamer, index);
-				updateStreamersData(stream, streamer, index);
-			})();
-		});
-	};
-
 	function filter(condition) {
 		if (condition === "all") {
 			setActive("all");
@@ -81,6 +70,16 @@ const ContextProvider = ({ children }) => {
 	}
 
 	useEffect(() => {
+		const fetchData = () => {
+			STREAMERS.forEach((streamer, index) => {
+				(async function fetchStreamer() {
+					const resp = await fetch(ENDPOINT + streamer);
+					const { stream } = await resp.json();
+					pushToDetails(stream, streamer, index);
+					updateStreamersData(stream, streamer, index);
+				})();
+			});
+		};
 		fetchData();
 	}, []);
 

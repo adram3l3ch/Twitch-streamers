@@ -3,7 +3,7 @@ import HoverCard from "./HoverCard";
 
 const Streamer = ({ name, status, game, story, views, logo, url }) => {
 	return (
-		<a href={url} target="_blank">
+		<a href={url} target="_blank" rel="noreferrer">
 			<div className="streamer">
 				<HoverCard />
 				<div className="logo">
