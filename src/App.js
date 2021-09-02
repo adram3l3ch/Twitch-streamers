@@ -1,9 +1,10 @@
 import Filter from "./components/Filter";
+import Loading from "./components/Loading";
 import Streamer from "./components/Streamer";
 import { useGlobalContext } from "./context";
 
 function App() {
-	const { streamersData } = useGlobalContext();
+	const { streamersData, isLoading } = useGlobalContext();
 	return (
 		<main className="streamers">
 			<header className="title">
@@ -13,9 +14,13 @@ function App() {
 				<Filter />
 			</header>
 			<section>
-				{streamersData.map((streamerData, index) => (
-					<Streamer {...streamerData} key={index} />
-				))}
+				{isLoading ? (
+					<Loading />
+				) : (
+					streamersData.map((streamerData, index) => (
+						<Streamer {...streamerData} key={index} />
+					))
+				)}
 			</section>
 		</main>
 	);

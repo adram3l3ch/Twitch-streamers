@@ -7,6 +7,7 @@ const AppContext = createContext();
 const ContextProvider = ({ children }) => {
 	const [streamersData, setStreamersData] = useState([]);
 	const [active, setActive] = useState("all");
+	const [isLoading, setIsLoading] = useState(false);
 
 	const pushToDetails = (stream, streamer, index) => {
 		if (stream) {
@@ -71,15 +72,18 @@ const ContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		const fetchData = () => {
+			setIsLoading((val) => true);
 			STREAMERS.forEach((streamer, index) => {
 				(async function fetchStreamer() {
 					const resp = await fetch(ENDPOINT + streamer);
 					const { stream } = await resp.json();
 					pushToDetails(stream, streamer, index);
 					updateStreamersData(stream, streamer, index);
+					if (details.length === 7) setIsLoading((val) => false);
 				})();
 			});
 		};
+
 		fetchData();
 	}, []);
 
@@ -91,6 +95,8 @@ const ContextProvider = ({ children }) => {
 				pushToDetails,
 				updateStreamersData,
 				filter,
+				isLoading,
+				setIsLoading,
 			}}
 		>
 			{children}
