@@ -72,14 +72,14 @@ const ContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		const fetchData = () => {
-			setIsLoading((val) => true);
+			setIsLoading(true);
 			STREAMERS.forEach((streamer, index) => {
 				(async function fetchStreamer() {
 					const resp = await fetch(ENDPOINT + streamer);
 					const { stream } = await resp.json();
 					pushToDetails(stream, streamer, index);
 					updateStreamersData(stream, streamer, index);
-					if (details.length === 7) setIsLoading((val) => false);
+					if (details.length === 7) setIsLoading(false);
 				})();
 			});
 		};
